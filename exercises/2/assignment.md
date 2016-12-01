@@ -3,7 +3,7 @@ Assignment 2: Creating a movie object
 
 ## Create a typed model definition for a movie and use it in the app component
 
-- Create a new folder in the app folder `movie`;
+- Create a new folder in the app folder `movies`;
 - Create a new file in the folder `movie.ts`;
 - Define a class `Movie` that accepts the parameters id, name, genre, rating;
   - Declare the correct typing for each parameter and make them publicly available as properties of the `Movie` class;

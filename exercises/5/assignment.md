@@ -3,7 +3,7 @@ Assignment 5: Creating a movie list component
 
 ## Create a new reusable component that shows the list of a movies and use it in the app component
 
-- Create a new component in the `movie` folder using the angular-cli generator command `ng g component movie/movie-list` in the integrated terminal;
+- Create a new component in the `movies` folder using the angular-cli generator command `ng g component movies/movie-list` in the integrated terminal;
   - Double check if the component is imported in the app module and added to the ngModule `declarations` array;
 - Change the `selector` property of the movie-list component to `movie-list`;
 - Import the angular `Input` and `Output` decorator and the angular `EventEmitter`;

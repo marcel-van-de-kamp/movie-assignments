@@ -1,9 +1,9 @@
-Assignment 4: Creating a details component 
+Assignment 4: Creating a movie detail component 
 ==============================================
 
 ## Create a new reusable component that shows the details of a movie and use it in the app component
 
-- Create a new component in the `movie` folder using the angular-cli generator command `ng g component movie/movie-detail` in the integrated terminal;
+- Create a new component in the `movies` folder using the angular-cli generator command `ng g component movies/movie-detail` in the integrated terminal;
   - Double check if the component is imported in the app module and added to the ngModule `declarations` array;
 - Change the `selector` property of the movie-detail component to `movie-detail`;
 - Import the angular `Input` decorator and create an input property `movie` of the type `Movie`;
