@@ -1,2 +1,0 @@
-- index.ts export e.d.
-- base href for routing

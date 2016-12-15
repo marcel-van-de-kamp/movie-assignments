@@ -1,2 +1,0 @@
-We hebben nu een movielist, detail en service die allemaal onder de 'feature' movies vallen. deze kunnen en moeten eigenlijk op zichzelf kunnen staan en werken zonder afhankelijk te zijn van de app die we nu aan het maken zijn.
-op deze manier kan deze feature ook hergebruikt worden in andere apps en wordt de app module / componet niet vervuild met feature specifieke implementatie

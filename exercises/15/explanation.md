@@ -1,0 +1,1 @@
+if you set the encapsulation property of both components to `ViewEncapsulation.None` the active classes will overwrite eachother, unless you specify a deeper css selector for one or both. 
