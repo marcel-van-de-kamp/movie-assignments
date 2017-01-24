@@ -1,1 +1,0 @@
-we want to be able to re-use the movie list and detail in the app, mabe even in other apps

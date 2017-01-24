@@ -1,3 +1,0 @@
-- We are going to create an application that shows a list of movies and details when you click on a movies
-- You can buy a movie 
-- on buy the movie will be listed on your personal dashboard 

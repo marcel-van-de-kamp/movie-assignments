@@ -1,2 +1,0 @@
-een template reference variable kun je rechtstreeks in een template definieren en alleen gebruiken in de child elements van het element waar de variable op wordt gedeclareerd
-reactive forms: https://toddmotto.com/angular-2-forms-reactive

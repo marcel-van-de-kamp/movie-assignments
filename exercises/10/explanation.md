@@ -1,2 +1,0 @@
-- why to end of the array, if you add a wildcard route to the app/root level routing, it could overwrite child routes of other feature modules (first hit is served).
-- forRoot because it is the root of our application. all others are child routes of this.
