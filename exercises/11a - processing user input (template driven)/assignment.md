@@ -26,7 +26,7 @@ Assignment 11: Validating user input with a template driven form
 - Pass the valid state/property of the 'movieForm` as second parameter to the `onSubmit` function.
 - Edit the onSubmit function in the detail component so that it checks if the form is valid before using the value, else show an error message (`alert('error')`).
 > Out of the box Angular 2 supplies the required, minlength, maxlength and pattern Validators.
-> To validate the min (1) and max (10) for the rating input we need to create a custom Validator. We will do this in another assignment.
+> To validate the min (1) and max (10) for the rating input we need to create a custom Validator. We will do this in an extra assignment.
 
 **Result**:
 > We now have a template driven form that validates its input changes and displays error messages.
