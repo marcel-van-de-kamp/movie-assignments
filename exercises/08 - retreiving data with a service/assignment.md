@@ -29,7 +29,7 @@ Assignment 8: Getting movies from a remote server
 - Call the `toPromise` operator/function on the `observe` variable, and assign the result to a new variable `promise`.
 > Lastly, we need to extract the json data from the http response object an return it:
 - Call the `then` function on the `promise` variable and supply an arrow function as asynchronous callback with one parameter `response`.
-- Call the `json` function on the parameter and return the `data` property of the json: `response => response.json().data`.
+- Call the `json` function on the parameter: `response => response.json()`.
 - Let the `getMovies` function return the synchronous result of the `then` function.
 - Refactor the code to chain all the above function calls and let `getMovies` return the result of the chain: `get -> toPromise -> then`.
 > We should also add an error handler to catch any errors that may come from the server:

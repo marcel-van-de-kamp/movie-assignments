@@ -20,10 +20,7 @@ import 'rxjs/add/operator/toPromise';
 getMovies(): Promise<Movie[]> {
     return this.http.get(this.moviesUrl)
                .toPromise()
-               .then(response => response.json().data as Movie[])
+               .then(response => response.json() as Movie[])
                .catch(this.handleError);
   }
 ```
-
-**In memory web API**:
-> Note! The data property in .json().data we use in our example app is how angular-web-api serves the json! In a production app, the json may be structured diffenrently.
