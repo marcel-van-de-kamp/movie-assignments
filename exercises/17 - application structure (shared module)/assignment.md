@@ -1,4 +1,4 @@
-Assignment 16: Creating a shared module
+Assignment 17: Creating a shared module
 ==============================================
 
 > ## Create a shared module and add a reusable loading component that is used by the movies and dashboard module

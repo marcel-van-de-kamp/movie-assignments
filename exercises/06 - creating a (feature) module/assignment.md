@@ -10,11 +10,12 @@ Assignment 6: Creating a feature module
 
 **Steps**:
 - Generate a new module in the movies folder with the angular-cli command `ng g module movies`.
-  - > You will notice angular-cli has also generated a `movies.component`. This component will function as the 'root' component for the movies feature.
+- Generate a root component for the module with the angular-cli command `ng g component movies`.
+  - > Check if angular-cli has automatically added the movies component to the `declarations` array of the movies module.
 - Move all movie functionality to the movies module:
-  - Import the movies component into the movies module and add it to the `declarations` and `exports` array.
+  - Besides the `declarations` array, also add the movies component to the `exports` array property of the movie module.
   - Move the imports of the movie detail and movie list component from the app module to the movies module.
-  - Add the components to the `declarations` array.
+  - Add the two components to the `declarations` array.
 - Import the movie functionality into the app module:
   - Import the movies module into the app module and add it to the `imports` array.
 - Move all movies functionality from the app component to the movies component:
@@ -25,3 +26,4 @@ Assignment 6: Creating a feature module
 **Result**:
 > We now have a movies feature module that encapsulates all movie specific material.
 > Our app (module/component) imports and uses the functionalities provided by the movies module.
+> Our app does not know any movie specifics anymore, we are free to also add serie, music and game modules in the future if we want. We are also able to copy / move all movie functionality to another angular app.

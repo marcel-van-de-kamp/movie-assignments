@@ -1,27 +1,31 @@
-Assignment 8: Multiple feature modules
+Assignment 13: Routing between views
 ==============================================
 
-> ## Create another feature module 'dashboard' that shows your favorite movies 
+> ## Define a route for the movies component
 
 **Links**:
-- [¹routing module](https://angular.io/docs/ts/latest/guide/router.html#!#milestone-2-the-routing-module-)
-- [angular modules](https://angular.io/docs/ts/latest/guide/ngmodule.html)
-- [feature modules](https://angular-2-training-book.rangle.io/handout/modules/feature-modules.html)
-- [introduction to feature modules](https://johnpapa.net/introducing-angular-modules-feature-modules-2/)
+- [Configuring Routes](https://angular-2-training-book.rangle.io/handout/routing/config.html)
+- [Angular 2 Router intro](http://blog.angular-university.io/angular2-router/)
+- [Routing and Navigation](https://angular.io/docs/ts/latest/guide/router.html)
 
 **Steps**:
-- Generate a new module with the angular-cli command `ng g module dashboard --routing`.
-- Import the dashboard component in the dashboard module and add it to the `declarations` and the `exports` array.
-- In the app module, remove the dashboard component import and instead import the dashboard module and add it to the `imports` array.
-- Create a function `getFavMovies` in the movie service that only returns your favorite 3 movies via `api/moviesFav`.
-- Import the service into the dashboard component and retreive your favorite movies in the `ngOnInit` function.
-- Display your favorite movies as a list in the template of the dashboard component with the `ngFor` directive.
-> ¹You will have noticed angular-cli has also generated a `dashboard-routing.module.ts` file, that contains some routing logic. 
-- Use the routes array in `dashboard-routing.module.ts` to define a route `dashboard` for the dashboard component
-- Make sure the `DashboardRoutingModule` imports the result of `RouterModule.forChild(routes)`, exports the `RouterModule` and the `DashboardModule` imports the `DashboardRoutingModule`.
-- Extract the 'inline' route in the movies module to its own ¹RoutingModule `movies-routing.module.ts`.
+- Make sure the `index.html` has added a `<base href="/" >` element in the head (see explanation.md).
+- Import the `RouterModule` and `Routes` in the movies module.
+- Declare a constant `routes` with the type `Routes` in the movies module.
+- Define the `routes` constant as an array with one object literal in it (a `Route` config object).
+  - Set the `path` property of the Route config object to `'movies'`.
+  - Set the `component` property of the Route config object to the `MoviesComponent`.
+- Declare a variable `routeProviders` in the movies module.
+  - Call the function `RouterModule.forChild` with the `routes` and assign the result to the `routeProviders` variable.
+- Add the `routeProviders` variable to the `imports` array of the movies module.
+> Are you getting a runtime error that `ngIf` and `ngFor` are not recognized? Make sure you import the angular common module into the module `imports` array.
+
+- Remove the selector from the movies component.
+- Remove the movies component from the `exports` array in the movies module.
+- Replace the `cw-movies` component from the app component template with a `<router-outlet>` component.
+> You will now get an error `router-outlet is not a known element`.
+- Import the `RouterModule` from `@angular/router` into the app module and add it to the `imports` array to fix the error.
+
 
 **Result**:
-> We now have another feature module, that can be accessed via the url http://localhost:4200/dashboard.
-> We have also 'separated concerns' by extracting the routing from the feature module to its own module file,
-> because our feature module should only be concerned with providing and exposing features from the module.
+> Now the application will only show the app header on the root url '/', if you navigate to http://localhost:4200/movies you will see the movies again

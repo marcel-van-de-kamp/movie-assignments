@@ -1,4 +1,4 @@
-Assignment 15: Using view encapsulation and shadow DOM
+Assignment 16: Using view encapsulation and shadow DOM
 ==============================================
 
 > ### Use the routerLinkActive directive to highlight the active menu item. Use the native shadow DOM to encapsulate the view.  

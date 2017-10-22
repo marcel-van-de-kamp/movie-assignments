@@ -1,30 +1,27 @@
-Assignment 14: Navigation links and redirecting to another route
+Assignment 14: Multiple feature modules
 ==============================================
 
-> ### Set the dashboard component as default route in app component 
-> ### and add navigation links for the movies and dashboard route
+> ## Create another feature module 'dashboard' that shows your favorite movies 
 
 **Links**:
-- [redirecting to another Route](https://angular-2-training-book.rangle.io/handout/routing/redirects.html)
-- [routing and navigation](https://angular.io/docs/ts/latest/guide/router.html)
-- [routing links](https://angular-2-training-book.rangle.io/handout/routing/routerlink.html)
-- [routerLink directive](https://angular.io/docs/ts/latest/api/router/index/RouterLink-directive.html)
+- [¹routing module](https://angular.io/docs/ts/latest/guide/router.html#!#milestone-2-the-routing-module-)
+- [angular modules](https://angular.io/docs/ts/latest/guide/ngmodule.html)
+- [feature modules](https://angular-2-training-book.rangle.io/handout/modules/feature-modules.html)
+- [introduction to feature modules](https://johnpapa.net/introducing-angular-modules-feature-modules-2/)
 
 **Steps**:
-- Add a root level RoutingModule to the application `app-routing.module.ts`.
-- Define the `routes` constant as an array with one object literal in it (a Route config object);
-  - Set the `path` property of the Route config object to an empty string `''`;
-  - Set the `redirectTo` property of the Route config object to the route `'dashboard'`;
-  - Set the `pathMatch` property of the Route config object to `'full'`;
-- Don't forget to import the `AppRoutingModule` in the app module to the ***end*** of the imports array
-
-> We can now add navigation for our routes
-- Add a `<nav>` element to the app component template;
-- Add an unordered list to the template `<ul>` with two list items `<li>`;
-- Insert an anchor element `<a>` to the first `<li>` with the text `Movies`;
- - Add a `routerLink` directive to the anchor element and set its value to `/movies`;
-- Repeat the above step for `/dashboard`;
+- Generate a new module with the angular-cli command `ng g module dashboard --routing`.
+- Import the dashboard component in the dashboard module and add it to the `declarations` and the `exports` array.
+- In the app module, remove the dashboard component import and instead import the dashboard module and add it to the `imports` array.
+- Create a function `getFavMovies` in the movie service that only returns your favorite 3 movies via `api/moviesFav`.
+- Import the service into the dashboard component and retreive your favorite movies in the `ngOnInit` function.
+- Display your favorite movies as a list in the template of the dashboard component with the `ngFor` directive.
+> ¹You will have noticed angular-cli has also generated a `dashboard-routing.module.ts` file, that contains some routing logic. 
+- Use the routes array in `dashboard-routing.module.ts` to define a route `dashboard` for the dashboard component
+- Make sure the `DashboardRoutingModule` imports the result of `RouterModule.forChild(routes)`, exports the `RouterModule` and the `DashboardModule` imports the `DashboardRoutingModule`.
+- Extract the 'inline' route in the movies module to its own ¹RoutingModule `movies-routing.module.ts`.
 
 **Result**:
-> When you now navigate to the empty route `localhost:4200`, the router will automatically redirect to the `dashboard` route.
-> Also, the movies and dashboard components are now accessible via navigation links.
+> We now have another feature module, that can be accessed via the url http://localhost:4200/dashboard.
+> We have also 'separated concerns' by extracting the routing from the feature module to its own module file,
+> because our feature module should only be concerned with providing and exposing features from the module.

@@ -1,56 +1,34 @@
-Assignment 11: Validating user input with a model driven form
+Assignment 11b: Processing user input with a model driven form
 ==============================================
 
-> ## Extend the movie detail form with model driven validation and validation messages
+> ## Create a new movie detail component with a model driven form to capture and submit user input 
 
 **Links**:
 - [model driven forms handout](https://angular-2-training-book.rangle.io/handout/forms/reactive-forms/reactive-forms.html)
 - [model driven forms fundamentals](https://toddmotto.com/angular-2-forms-reactive#ngmodule-and-reactive-forms)
 - [formcontrol api](https://angular.io/docs/ts/latest/api/forms/index/FormControl-class.html)
-- [javascript property accessors](https://developer.mozilla.org/nl/docs/Web/JavaScript/Reference/Operators/Property_Accessors)
 - [formgroup api](https://angular.io/docs/ts/latest/api/forms/index/FormGroup-class.html)
-- ¹[formbuilder api](https://angular.io/docs/ts/latest/api/forms/index/FormBuilder-class.html)
-- ²[template reference variable](https://angular.io/docs/ts/latest/guide/template-syntax.html#!#ref-vars)
-- ³[pipes](https://angular.io/docs/ts/latest/guide/pipes.html)
 
 **Steps**:
-> Name and genre are required fields and name should have at least 4 characters.
-> Validators can be set by adding them as a second (array) parameter to the `FormControl` objects.
-- Import the standard angular `Validators` from `@angular/forms`.
-- Add a second parameter to the genre `FormControl`: an Array with `Validators.required` validator function as array item.
-- Do the same for the name `FormControl`, but also add a second validator `Validators.minLength(4)`, which will return a validator function.
-> Angular will add failed validation rules to the `FormControl` object as an `errors` property.
-- Create a new `<span>` element beneath the `name` input field and display an error text in the `<span>`.
- - Add an `*ngIf` directive to the `<span>` and use the 'errors' property to check if the 'required' rule is present: `movieForm.controls.name.errors?.required`.
- - Extend the `*ngIf` condition with `&& movieForm.controls.name.touched` to make sure the error only appears when the user has 'touched' it.
-- Do the same for the genre control and for the `minlength` error of the name control.
-> You can now see the errors in the browser when you delete the characters from the name or genre input.
-> Out of the box Angular 2 supplies the required, minlength, maxlength and pattern Validators.
-> To validate the min (1) and max (10) for the rating input we need to create a custom Validator. We will do this in an extra assignment.
-
-> Creating `FormGroup`s and `FormControl`s can be simplified by using the angular `FormBuilder` service.
-- Import the `FormBuilder` from `@angular/forms`, inject it into the constructor and store it as a class property.
-- ¹Rewrite the `FormGroup` and `FormControls` using the `FormBuilder` in `ngOnInit` function.
-
-> Now before submitting to the server, we need to check if the form is valid.
-- Use the `movieForm` in the `onSubmit` function to check if the form is valid (`movieForm.valid`) before using it's value.
-
-> When clicking through the movies list, you will notice the movie form is not automatically updated.
-> The model is not (two-way) binded to the form so we need to do this mannually.
-- Import the `OnChanges` interface and the `SimpleChanges` and `SimpleChange` types from `@angular/core`.
-- Let the movie detail component implement the `OnChanges` interface by adding the `ngOnChanges` lifecycle hook function.
-> The only parameter for this function is of a 'key: `SimpleChange`' type. This means it is not explicitly known which keys are on the object but their value must be of type `SimpleChange`.  
-- First check if the `SimpleChanges` object contains the `movie` property (if the movie is changed), ²use the bracket notation to access the movie property on the object
-> The keys on the object correspond to the names of the `@Input` properties, but only if they are actually changed.
-- If the `movie` property on the object has a value, save it to a local variable. You will see the variable is automatically typed as a `SimpleChange`.
-- Check if it is the first time the input property is set with the `isFirstChange()` function on the variable.
-- If it is not the first time, update the form values with the changed `movie` values:
-    - Create a private function `updateFormValues`.
-    - Use the `setValue` function on the `movieForm` to copy the name, genre and rating of the new movie model to the form.
-
-**Extra**:
-- If the form is not valid, we don't want the user to be able to click the save button.
-- ³Use the json pipe to print the value and errors object on the screen. This can be handy when debugging.
+- When using model driven forms, the `ReactiveFormsModule` has to be imported into the movies module from `@angular/forms`.
+- encapsulate the input fields with a `<form novalidate>` element.
+- Add a save button with type `submit` to the bottom of the form.
+- Remove all `ngModel` directives from the template, we don't need 'automagic' template binding in model driven forms.
+  - You can also savely remove the `FormsModule` import from the movies module now because we don't use it anymore.
+- To build a model driven form we need the `FormGroup` en `FormControl` classes, import these in the detail component from `@angular/forms`.
+- Declare a class property `movieForm` of type `FormGroup` en assign a new `FormGroup` object to it in the`ngOnInit` function.
+- Supply an object literal to the `FormGroup` as first parameter.
+  - For every input field on the form, add a property to the object and assign a new `FormControl` object as value to it.
+  - Supply an 'initial state/value' to each `FormControl`.
+> To synchronize the created `FormGroup` and `FormControl`'s to the template we use the `formGroup` and `formControlName` directives.
+- Add a property binding `[formGroup]` to the `form` element and bind it to the `movieForm` object.
+- Add a `formControlName` directive to each input field and use the same name you used in the `ngOnInit` function, for example `formControlName="genre"`.
+> The `FormGroup` we bind to our root `form` element will store and handle all input and validations of its child controls and groups.
+- Add an event binding `(ngSubmit)` to the form element and call `onSubmit()`.
+- Create the function `onSubmit` in the detail component class.
+  - Map the properties on the `value` property of our `movieForm` to our `movie` model object to simulate a 'save'.
+  > You could use `Object.assign` if `value` is an actual `Movie`.
 
 **Result**:
-> We now have a model driven form that validates its input changes and displays error messages
+> We now use a FormGroup and FormControl to capture input changes without directly modifying the model, and we are writing the data to the model on submit.
+> Next we want to validate the input changes and show validation messages.

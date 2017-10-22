@@ -17,6 +17,7 @@ Assignment 4: Creating a movie detail component
 - Replace the detail HTML in the app component template with the movie detail component.
   - Use the movie detail component by adding a `<cw-movie-detail>` element.
   - Add a property binding to the element that binds the input property `movie` to the `selectedMovie` of the app component.
+  - If you still have the `*ngIf=".."` in the detail component, move it back to the app component HTML and set it on the `cw-movie-detail`. A parent component is responsible for when and if a child is displayed.
 
 **Result**:
 > The view will still show the details of the movie, but now via a reusable stateless component.

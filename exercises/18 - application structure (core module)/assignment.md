@@ -1,4 +1,4 @@
-Assignment 14: Creating a core module
+Assignment 18: Creating a core module
 ==============================================
 
 > ## Create a navigation component for the app and add it to a core module
