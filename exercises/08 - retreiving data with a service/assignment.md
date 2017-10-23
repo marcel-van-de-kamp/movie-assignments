@@ -35,9 +35,10 @@ Assignment 8: Getting movies from a remote server
 - Finally, the movies component needs to handle the result of the call to `getMovies` asynchronously. The `getMovies` function now returns a `Promise` object, so we call the `then` function on it again. Do this in the `ngOnInit` of the movies component. The `then` function will need an arrow function as parameter. The arrow function will have one parameter itself `result` (the array of movies retreived from the server). Set the value of the private `movies` property to the value of `result`.
 - *Repeat the steps for the favorite movies in a `getFavMovies` function. The `getFavMovies` function will not be used in any component yet.*
 
-> Optional: Refactor the code in the `getMovies` function to chaining all the function calls and let `getMovies` return the result of the chain: `get -> toPromise -> then`.
+**Extra**
+> Refactor the code in the `getMovies` function to chaining all the function calls and let `getMovies` return the result of the chain: `get -> toPromise -> then`.
 
-> Optional: We should also add an error handler to catch any errors that may come from the server:
+> We should also add an error handler to catch any errors that may come from the server:
 - Add a private function `handleError` with one parameter `error: any` to the movie service.
  - Call the static `reject` function on the `Promise` object with the `error` object as parameter. Store the result in a local `result` variable. Let the `handleError` function return the `result` variable.
 - Add a call to the `catch` function to the chain in `getMovies` and supply `this.handleError` as parameter.
