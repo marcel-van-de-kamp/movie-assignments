@@ -12,8 +12,8 @@ Assignment 12a: Validating user input with a template driven form
 - [template reference variable](https://angular.io/docs/ts/latest/guide/template-syntax.html#!#ref-vars)
 
 **Steps**:
-> Name and genre are required fields and name should have at least 4 characters.
-- Add a `required' html attribute to the 'name' input element to mark is as required.
+> Validation rules: Name and genre are required fields and name should have at least 4 characters. The rating should always be between 0 and 11.
+- In the template of the movie detail component, add a `required` html attribute to the `name` input element to mark is as required.
 - Add a template reference variable `#movieName` to the `name` input and assign its `ngModel` to it.
 > Angular will add failed validation rules to the ngModel of an input field as an `errors` property.
 - Create a new `<span>` element beneath the `name` input field and display an error text in the `<span>`.
@@ -22,11 +22,11 @@ Assignment 12a: Validating user input with a template driven form
 > You can now see the error in the browser when the name input field is empty.
 - Repeat the steps for the genre field.
 - Also add a `minlength="4"` html attribute to the `name` input field and add a validation error for it.
-> Now before submitting to the server, we need to check if the form is valid.
-- Pass the valid state/property of the 'movieForm` as second parameter to the `onSubmit` function.
-- Edit the onSubmit function in the detail component so that it checks if the form is valid before using the value, else show an error message (`alert('error')`).
+> Now before submitting to the server, we need to check if the form is valid, by checking its `valid` property.
+- Pass the `valid` property of the `movieForm` as second parameter to the `onSaveClicked` function.
+- Edit the `onSaveClicked` function in the detail component so that it checks if the form is `valid` before using the form values, else show an error message (`alert('error')`).
 > Out of the box Angular 2 supplies the required, minlength, maxlength and pattern Validators.
-> To validate the min (1) and max (10) for the rating input we need to create a custom Validator. We will do this in an extra assignment.
+> To validate the min (1) and max (10) for the rating input we need to create a custom Validator. We will do this an extra assignment.
 
 **Result**:
 > We now have a template driven form that validates its input changes and displays error messages.
