@@ -28,7 +28,9 @@ Extra Assignment: Angular custom form validator
 - To display an error, add a template reference variable `#movieRating` to the rating input and bind its `ngModel` to it.
  - Add a span beneath the `rating` input, with an error text `Error: value must be between 0 and 11!`
  - Add an `*ngIf` to the span, just like the ones for the name, but check the `validateRating` error instead.
- > To use our validator in our **model** driven form, we need to extract the validation code to a seperate validation function so we can use it in a component directly:
+ > To use our validator in our **model driven form**, we need to extract the validation code to a seperate function, so we can use it in a component directly:
+ - Mannually create a new file `rating-validator.ts` in the movies folder.
+ - Create function, validation interface, import function in directive and use, import in form component and add to formgroup
 
 **Result**:
 > We have created a custom form validator that can be used in any of our forms. 
