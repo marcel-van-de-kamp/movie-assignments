@@ -34,7 +34,7 @@ Assignment 11a: Processing user input with a template driven form
 - Create a template reference variable `#genre` on the genre input element and assign the `ngModel` object to it.
 - Use the template reference variable to clear the genre when the *Escape* key is pressed, by accessing the form control that Angular has created for it and calling its `setValue` method: `genre.control.setValue('')`.
 > Because we removed the two way binding from the input fields, the form can also can be easily reset because we still have the original data in the `movie` input property.
-- Add another button to the form `Reset..`, with `type="reset"`.
+- Add another button to the form `Reset..`, with `type="button"`.
  bind a `onResetClicked` method to the click event of the button and supply the `movieForm` as parameter.
 - In the `onResetClicked` method, call the `resetForm` method on the `movieForm` parameter and supply the `movie` as parameter.
 

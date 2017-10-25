@@ -24,13 +24,28 @@ Extra Assignment: Angular custom form validator
 - If the validator has no error to return, then it should `return null`. Add this add the end of the validate function.
 - Now we can use this directive, but Angular does not know yet that this directive is actually a validator. To let Angular know about this validator, we add it to the known validators by adding the following property to the `@Directive` decorator: `providers: [{ provide: NG_VALIDATORS, useExisting: RatingValidatorDirective, multi: true }]`. Import the `NG_VALIDATORS` from `@angular/forms` and your set.
 > What does this code mean? In short it adds our validator to a symbol store Angular internally keeps. multi is needed to not override the entire store, but just add our validator.
-- now lets use our validator in our **template driven form**! Add the selector `cwRatingValidator` to the rating input in the template of the movie detail component. Thats it! An error will be added to the error object of the rating control when the validator returns true.
+
+**Template driven form**
+- now lets use our validator in our template driven form! Add the selector `cwRatingValidator` to the rating input in the template of the movie detail component. Thats it! An error will be added to the error object of the rating control when the validator returns true.
 - To display an error, add a template reference variable `#movieRating` to the rating input and bind its `ngModel` to it.
  - Add a span beneath the `rating` input, with an error text `Error: value must be between 0 and 11!`
  - Add an `*ngIf` to the span, just like the ones for the name, but check the `validateRating` error instead.
- > To use our validator in our **model driven form**, we need to extract the validation code to a seperate function, so we can use it in a component directly:
- - Mannually create a new file `rating-validator.ts` in the movies folder.
- - Create function, validation interface, import function in directive and use, import in form component and add to formgroup
+
+**Model driven form**
+ > To use our validator in our model driven form, we need to extract the validation code to a separate function, so we can use it in our component directly:
+- Manually create a new file `rating-validator.ts` in the movies folder.
+ - We will use the `ValidatorFn`, `AbstractControl` and `ValidationErrors` interfaces, so import these from `@angular/forms` in the new file.
+ - Create an empty function `ratingValidator` in the file and `export` it. Give it a returntype of `ValidatorFn`.
+ - Define another empty function inside the `ratingValidator` function and return it. This function will have a return type of `ValidationErrors` and one parameter `control` of type `AbstractControl`.
+> The function `ratingValidator` returns a function, which means it's actually a `factory function`.
+  - We are set to implement our validation code. Copy the code from the `validate` function in the rating-validator directive to the anonymous function we are returning and fix any errors that may occur.
+  - We want to be able to define what the limits are from the outside, so add to parameters to the `ratingValidator` function `minValue` and `maxValue` of type `number`, and use these in stead of the fixes values.
+  - Now import the `ratingValidator` in our reactive movie detail component.
+  - Create a validator with the factory and add it to the `rating` `FormControl` as second parameter.
+  - Add an error message `<span>` beneath the rating input field (just like name and genre) in the reactive detail component template that checks the `validateRating` property.
+
+**Extra (model driven form)**:
+- Now we can re-use our function everywhere, including in the rating-validator directive. So lets remove the duplicate code in the directive, import the `ratingValidator` function and use it in our validate function.
 
 **Result**:
 > We have created a custom form validator that can be used in any of our forms. 
