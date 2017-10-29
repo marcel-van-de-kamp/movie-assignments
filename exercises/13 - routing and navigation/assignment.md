@@ -18,7 +18,7 @@ Assignment 13: Routing between views
 - Declare a variable `routeProviders` in the movies module.
   - Call the function `RouterModule.forChild` with the `routes` and assign the result to the `routeProviders` variable.
 - Add the `routeProviders` variable to the `imports` array of the movies module.
-> Are you getting a runtime error that `ngIf` and `ngFor` are not recognized? Make sure you import the angular common module into the module `imports` array.
+> Are you getting a runtime error that `ngIf` and `ngFor` are not recognized? Make sure you import the angular `CommonModule` into the module `imports` array.
 
 - Remove the selector from the movies component.
 - Remove the movies component from the `exports` array in the movies module.

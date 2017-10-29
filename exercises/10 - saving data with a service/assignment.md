@@ -33,7 +33,7 @@ Assignment 10: saving data with a service
 - Import the `Output` and `EventEmitter` from `@angular/core` in the movie detail component, create an output property `save` and set its value to a new `EventEmitter`.
 - Call the `emit` function on `save` in the `onSaveClicked` method with the `movie` as single argument.
 - Add an event binding to the `save` event in the template of the movies component and bind it to the `onSaveMovie` function.
- - Add the `onSaveMovie` function to the movies detail component. The `onSaveMovie` function will call `updateMovie` of the movie service.
+ - Add the `onSaveMovie` function to the movies component. The `onSaveMovie` function will call `updateMovie` of the movie service.
  - `updateMovie` will return a `Promise`, so chain a call to the `then` function and supply an arrow function as its single parameter.
  > Now that the data is saved, we want the list to update as well.
  - Extract the code from the `ngOnInit` function to a new function `getMovies` in the movies component and call `getMovies` in the `ngOnInit`. Now we can re-use the code we extracted (should not do that with the `ngOnInit` because it is a lifecycle hook). 
