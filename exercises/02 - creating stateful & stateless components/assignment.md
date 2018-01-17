@@ -8,8 +8,8 @@ Assignment 2: Creating a movie object
 - [typescript modules](https://www.typescriptlang.org/docs/handbook/modules.html)
 
 **Steps**:
-- Create a new folder in the app folder `movies`.
-- Create a new file in the folder `movie.ts`.
+- Create a new folder in the app folder and name this new folder `movies`.
+- Create a new file in the movies folder and name it `movie.ts`.
 - Define a class `Movie` that accepts the parameters id, name, genre, rating.
   - Declare the correct typing for each parameter and make them publicly available as properties of the `Movie` class.
 - Export the class to make it available as a module.
