@@ -6,10 +6,8 @@ Assignment 10: saving data with a service
 > The stub server we set up is also able to 'save' data by means of a http put (edit) or post (create) call.
 
 **Links**:
-- [http module](https://angular-2-training-book.rangle.io/handout/http/)
-- [http request](https://angular-2-training-book.rangle.io/handout/http/making_requests.html)
+- [angular http client](https://angular.io/guide/http)
 - [convert to promise](https://angular-2-training-book.rangle.io/handout/http/requests_as_promises.html)
-- [angular http client](https://angular.io/docs/ts/latest/guide/server-communication.html)
 - [rxjs](http://reactivex.io/rxjs/manual/overview.html#introduction)
 - [rxjs observable](http://reactivex.io/documentation/observable.html)
 - [using observables](https://angular-2-training-book.rangle.io/handout/observables/using_observables.html)
@@ -18,10 +16,12 @@ Assignment 10: saving data with a service
 - [template literals](https://developers.google.com/web/updates/2015/01/ES6-Template-Strings)
 
 **Steps**:
-- Add an `updateMovie` function to the movie service, that receives one parameter `movie`.
-- Create a local variable `url` in the function, that combines the `moviesUrl` with a `/` and then the `movie.id`. So if `id` was `1`, the end result will be `api/movies/1`.
+- Add an `updateMovie` function to the `movie.service`, that receives one parameter `movie`.
+- Create a local variable `url` in `updateMovie`, that combines the `moviesUrl` with a `/` and then `movie.id`. So if `id` is `1`, the end result will be `api/movies/1`.
 - To send the data to the server, we need to convert the movie to a JSON string. Do this by calling `JSON.stringify(movie)`, and save the result in a variable `json`.
-- call the `put` function on the `http` service, supply the `url` as first parameter and the `json` as second.
+> We have to tell the 'api' what type of payload we are sending. We do this by sending an httpheader that says our payload is json:
+- Create an `options` variable with value : `{ headers: new HttpHeaders({ 'Content-Type': 'application/json' }) }`
+- call the `put` function on the `http` service, supply the `url` as first parameter, then the `json` and lastly the `options`.
 - Convert the observable result to a promise with `toPromise` and add the `then` function to the chain. Supply an arrow function as parameter to the `then` function which receives one parameter `response`. The value of the `response` parameter will be a http `204 No Content`, which means all went well, but the server did not send any data back. We don't want to send an empty response back to the movies component, so we will just return the `movie` object in the arrow function.
 > Note: this means we must be able to rely on the server that the movie is stored exactly as we send it.
 - To make it complete, also add the `catch` to the chain just like in `getMovies`.

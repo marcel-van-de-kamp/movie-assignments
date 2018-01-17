@@ -6,10 +6,8 @@ Assignment 8: Getting movies from a remote server
 > We already set up the 'angular in memory web api' for you to stub a remote server and return mock data. See `stub-server.md` for info on how to set it up.
 
 **Links**:
-- [http module](https://angular-2-training-book.rangle.io/handout/http/)
-- [http request](https://angular-2-training-book.rangle.io/handout/http/making_requests.html)
+- [angular http client](https://angular.io/guide/http)
 - [convert to promise](https://angular-2-training-book.rangle.io/handout/http/requests_as_promises.html)
-- [angular http client](https://angular.io/docs/ts/latest/guide/server-communication.html)
 - [rxjs](http://reactivex.io/rxjs/manual/overview.html#introduction)
 - [rxjs observable](http://reactivex.io/documentation/observable.html)
 - [using observables](https://angular-2-training-book.rangle.io/handout/observables/using_observables.html)
@@ -17,17 +15,18 @@ Assignment 8: Getting movies from a remote server
 - [typescript generics](https://www.typescriptlang.org/docs/handbook/generics.html)
 
 **Steps**:
-- Import the `HttpModule` from `'@angular/http'` into the app module and add it to the `imports` array (may already be there).
-- Import the `Http` service from `'@angular/http'` into the movie service and add/inject it into the constructor as a parameter.
-- Declare two private constant properties `moviesUrl` and `moviesFavUrl` in the movie service and assign the values `'api/movies'` and `'api/moviesFav'` respectively to them.
->  We will edit the `getMovies` function to use the `httpService` to asynchronously get the remote movie data:
+- Import the `HttpClientModule` from `'@angular/common/http'` into the `app.module` file and add it to the `imports` array of the module.
+- Import the `HttpClient` service from `'@angular/common/http'` into the `movie.service`.
+- Add a parameter `http` to the constructor and type it as `HttpClient`.
+- Declare two private constant properties `moviesUrl` and `moviesFavUrl` in the `movie.service` and assign the values `'api/movies'` and `'api/moviesFav'` to them.
+>  We will edit the `getMovies` function to use the `httpClient` to asynchronously get the remote movie data:
 - Remove the hardcoded array of movies from the `getMovies` function.
-- Call the `get` function on the `httpService` with the `moviesUrl` and assign the result to a new local variable `observe` in the `getMovies` function.
-> The `Http` service fetches data from a server over http and returns an `Observable` object from the `rxjs` library. `Observables` can be used in multiple use cases, but may be a little overkill when just retreiving data by means of a single http call. Therefore, as an intermediate step, we will convert the `observe` variable to a more familiar `Promise` object:
+- In the `getMovies` function, call the `get` function on the `http` service and supply the `moviesUrl` as single parameter. The get function will return a result. Assign this result to a new variable `observe`.
+> The `HttpClient` service fetches data from a server over http and returns an `Observable` object from the `rxjs` library. `Observables` can be used in multiple use cases, but may be a little overkill when just retreiving data by means of a single http call. Therefore, as an intermediate step, we will convert the `observe` variable to a more familiar `Promise` object:
 - Change/Add the return type of the `getMovies` function to `Promise<Movie[]>`.
 - Import the `toPromise` rxjs operator by adding the import statement `import 'rxjs/add/operator/toPromise'`.
 - Call the `toPromise` operator/function on the `observe` variable, and assign the result to a new variable `promise`.
-> Lastly, we need to extract the json data from the http response object, asynchronously:
+> Lastly, we need to extract the json data from the response object, asynchronously:
 - Call the `then` function on the `promise` variable and supply an arrow function as parameter.
  > The arrow function itself has one parameter `response`. The arrow function will be called asynchronously when the data has been fetched.
  - Call the `json` function on the `response` parameter and return its result: `(response) => response.json()`.
