@@ -16,7 +16,7 @@ Assignment 5: Creating a movie list component
 - Create an input property `movies` with the typing array of `Movie`.
 - Create an output property `movieClicked` and assign a new (instance of) EventEmitter to it.
 - Copy the list HTML from the app component to the movie-list template.
-- Create a function in the movie-list component `onMovieClicked` that accepts a movie as parameter.
+- Create a function `onMovieClicked` in the movie-list component which accepts a movie as parameter.
 - The click event of the buttons in the `movie-list.component.html` should now be bound to the `onMovieClicked` function of the movie-list component.
 - Use the `movieClicked` output property to emit an event and supply the clicked movie as event value.
 - Replace the movie list HTML in the app component template with the `<cw-movie-list>` component.
