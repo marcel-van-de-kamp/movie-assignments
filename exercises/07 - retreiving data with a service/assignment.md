@@ -17,7 +17,7 @@ Assignment 7: Retreiving data with a service
 - Add the `MovieService` in the constructor of the movies component as a private property `movieService` with the typing `MovieService`. 
     - By doing this, you are effectively telling the DI framework of Angular to inject an instance of the `MovieService`.
 - Notice the `OnInit` interface in the movies component which has been implemented onto the class declaration.
-- Retreive the movies in the `ngOnInit` function from the `movieService`, and assign it to our private `movies` property.
+- Retreive the movies in the `ngOnInit` function from the `movieService`, and assign it to our public `movies` property.
 - Remove the hardcoded movies array from the movie component if you haven't done so yet, as we are now fetching them with the service.
 - To actually use the service, we need to tell the Angular DI that it exists. Do this by importing the movie `service` in the movies `module` and adding it to the `providers` array property.
 
