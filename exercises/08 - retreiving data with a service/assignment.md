@@ -3,7 +3,7 @@ Assignment 8: Getting movies from a remote server
 
 > ## Use the angular http service to get movies from a remote/stub server
 
-> We already set up the 'angular in memory web api' for you to stub a remote server and return mock data. See `stub-server.md` for info on how to set it up.
+> We already set up the 'angular in memory web api' for you to stub a remote server and return mock data. See `stub-server.md` for info on how we did it (don't do it now).
 
 **Links**:
 - [angular http client](https://angular.io/guide/http)
@@ -33,7 +33,7 @@ An `Observable` listens to a 'stream' of events over time. It listens for exampl
 > In the `movies.component` we made a call to `movieService.getMovies` to fetch the movies. This will probably give an error at this point:
 - In the `movies.component` `ngOnInit` function you made a call to `movieService.getMovies`. Instead of directly storing the result you get to the `movies` property, save it to a local variable `result` in the `ngOnInit` function.
 > When you hover the `result` variable, you'll see the type `Observable<Movie[]>`. Now that the `movieService.getMovies` returns an `Observable`, we need to `subscribe` to it:
-- Subscribe to the observable by calling the `subscribe` function on the `result` variable. The subscribe function needs one parameter that is a (arrow) function. This function will have one parameter which you can name `movies`: `(movies) => { }`.
+- Subscribe to the observable by calling the `subscribe` function on the `result` variable. The subscribe function needs one parameter that is a (arrow) function. This function will have one parameter which you can name `movies`. So the arrow function will look like this: `(movies) => { }`.
 - The function we supplied as parameter will be called when the server returns with our data. So we can use this function to store the data to the property `this.movies` again.
 - *Repeat the steps for the favorite movies in a `getFavMovies` function. The `getFavMovies` function will not be used in any component yet.*
 
