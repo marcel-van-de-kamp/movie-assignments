@@ -46,7 +46,7 @@ An `Observable` listens to a 'stream' of events over time. It listens for exampl
 - The `catch` function will also need an arrow function as parameter and will itself receive one parameter named `error`.
 - When catching errors in a service, we usually do some logging (i.e. console.log(error)). 
 - After logging we `throw` our error to our calling component. You'll need to import throw operator also: `import 'rxjs/add/observable/catch'`.
-- When imported, you can statically call it on the `Observable` object and supply the error or a string as parameter. the result of this call needs to be returned.
+- When imported, you can statically call it on the `Observable` object and supply the error or a string as parameter. the result of this call to the catch method needs to be returned.
 - To test it, change the `movieUrl` to something else and use the console in the browser to see what happens.
 
 **Result**:
