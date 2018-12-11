@@ -8,6 +8,7 @@ Assignment 7: Retreiving data with a service
 - [services tutorial](https://angular.io/docs/ts/latest/tutorial/toh-pt4.html)
 - [angular dependency injection](https://angular-2-training-book.rangle.io/handout/di/)
 - [angular component lifecycle hooks](https://angular-2-training-book.rangle.io/handout/advanced-components/component_lifecycle.html)
+- [Providing services](https://angular.io/guide/architecture-services#providing-services)
 
 **Steps**:
 - Create a new service in the `movies` folder using the angular-cli command `ng g service movies/movie`.
@@ -19,7 +20,7 @@ Assignment 7: Retreiving data with a service
 - Notice the `OnInit` interface in the movies component which has been implemented onto the class declaration.
 - Retreive the movies in the `ngOnInit` function from the `movieService`, and assign it to our public `movies` property.
 - Remove the hardcoded movies array from the movie component if you haven't done so yet, as we are now fetching them with the service.
-- To actually use the service, we need to tell the Angular DI that it exists. Do this by importing the movie `service` in the movies `module` and adding it to the `providers` array property.
+- To actually use the service, we need to tell the Angular DI that it exists by providing it. By default, the Angular CLI command `ng g service movies/movie` registers a provider with the root injector for our service by including provider metadata in the @Injectable() decorator. Angular will create a single, shared instance of MovieService and injects it into any class that asks for it. So we're all set.
 
 **Result**:
 > The movies will now be retreived from a reusable singleton service. The service is responsible of fetching and returning the requested movies.
