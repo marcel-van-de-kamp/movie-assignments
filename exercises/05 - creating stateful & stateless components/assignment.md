@@ -10,9 +10,9 @@ Assignment 5: Creating a movie list component
 - [Event emitter API](https://angular.io/api/core/EventEmitter)
 
 **Steps**:
-- Create a new component in the `movies` folder using the angular-cli generator command `ng g component movies/movie-list` in the integrated terminal.
+- Create a new component in the `movies` folder using the angular-cli generator command `ng g component movies/movie-list` in the integrated terminal. NB: You can run this command from the root of the project.
   - Double check if the component is imported in the app module and added to the ngModule `declarations` array.
-- Import the angular `Input` and `Output` decorator and the angular `EventEmitter` in the new component.
+- Import the angular `Input` and `Output` decorator and the angular `EventEmitter` from @angular/core in the new component.
 - Create an input property `movies` with the typing array of `Movie`.
 - Create an output property `movieClicked` and assign a new (instance of) EventEmitter to it.
 - Copy the list HTML from the app component to the movie-list template.

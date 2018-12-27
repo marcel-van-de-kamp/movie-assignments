@@ -23,7 +23,7 @@ Assignment 8: Getting movies from a remote server
 - In the `getMovies` function, call the `get` function on the `http` service and supply the `moviesUrl` as single parameter. The `get` function will return a result. Assign this result to a new variable `result`.
 > The `HttpClient` service fetches data from a server over http and returns an `Observable` object from the `rxjs` library.
 An `Observable` listens to a 'stream' of events over time. It listens for example to every key stroke on a keyboard or to every signal/response a server pushes to the app.
-- Change the return type of the `getMovies` function to `Observable<Movie[]>`. You'll also need to import the `Observable` type from `'rxjs/Observable'` to fix the error you get.
+- Change the return type of the `getMovies` function to `Observable<Movie[]>`. You'll also need to import the `Observable` type from `'rxjs'` if you didn't do so already.
 - Finally, let the function `getMovies` return the `result` variable.
 > When you hover over the `result` variable, you'll see the result type of the get function. Because TypeScript cannot know what kind of data the server will return, you'll see it returns an `Observable<Object>`.
 > To tell TypeScript what type of data will be returned by the server, we can add a `type parameter` to the get function:
@@ -40,14 +40,13 @@ An `Observable` listens to a 'stream' of events over time. It listens for exampl
 **Extra**
 
 > We should also add an error handler to catch any errors that may come from the server:
-> The `rxjs` library and `Observable` works with `operators` you can directly import. When you import them, they will be added as operator the Observable object.
-- To handle an error, import the catch operator in the `movie.service` like so `import 'rxjs/add/operator/catch'`;
-- The `catch` operator will now be available. Add it to our http call by 'chaining' it to the `get` function.
-- The `catch` function will also need an arrow function as parameter and will itself receive one parameter named `error`.
-- When catching errors in a service, we usually do some logging (i.e. console.log(error)). 
-- After logging we `throw` our error to our calling component. You'll need to import throw operator also: `import 'rxjs/add/observable/catch'`.
-- When imported, you can statically call it on the `Observable` object and supply the error or a string as parameter. the result of this call to the catch method needs to be returned.
-- To test it, change the `movieUrl` to something else and use the console in the browser to see what happens.
+> We should catch and handle the error in the service and not in the component
+- Follow the steps as described at [http error handling](https://angular.io/guide/http#error-handling)
+- Eventually you'll need to import several 'rxjs operators' like
+    - `import { catchError, retry } from 'rxjs/operators';`
+- You'll also need to import the 'throwError' function from 'rxjs':
+    - `import {throwError } from 'rxjs';`
+- To test it, change the `movieUrl` to something else and use the console in the browser to see what happens. You could also make a public property `error` in the movies component and display/interpolate it when there is an error.
 
 **Result**:
 > We now asynchronously retrieve the movies from a remote/stub server.
