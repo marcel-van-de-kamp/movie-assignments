@@ -27,8 +27,8 @@ Assignment 10: saving data with a service
 > We want the `movie-detail.component` to remain stateless, i.e. not know anything about retreiving or saving data to a server, so we will let our parent handle the actual saving:
 - Import the `Output` and `EventEmitter` from `@angular/core` in the `movie-detail.component`, create an `@Output()` property `save` and set its value to a new `EventEmitter`.
 - Call the `emit` function on `save` in the `onSaveClicked` method with the property `movie` as single argument.
-- Add an event binding to our `save` event in the template of the `movies.component` and bind it to a `onSaveMovie` function. don't forget the `$event` parameter.
- - Add the `onSaveMovie` function to the movies component. Make the `onSaveMovie` function call `updateMovie` of the `movie.service`.
+- Add an event binding to our `save` event in the template of the `movies.component` and bind it to a `onMovieSaved` function. don't forget the `$event` parameter.
+ - Add the `onSaveMovie` function to the movies component. Make the `onMovieSaved` function call `updateMovie` of the `movie.service`.
  - `updateMovie` will return an `Observable`, so chain a call to the `subscribe` function and supply an arrow function as its single parameter.
  > Now that the data is saved, we want the list to update as well.
  - Extract the code from the `ngOnInit` function to a new function `getMovies` in the movies component.
@@ -40,11 +40,11 @@ Assignment 10: saving data with a service
 
 **Extra**
 > We are now directly passing the result from the server the component. We don't want this, because a component should not know anything about communicating with a server. We want to pick up the response from the server in our `movie.service`, mabe do something with it and then pass a custom result to the component.
-- Chain a `map` function to the `put` in `movie.service` to intercept the response of the server and do something with it.
+- Chain a `map` function (with `.pipe()`) to the `put` in `movie.service` to intercept the response of the server and do something with it.
 > The server can return nothing (or sometimes the movie itself), or a response `204 No Content`, which means all is well but i don't have a payload for you.
 - We don't want to send an empty response back to the `movies.component`, so we will just return the `movie` object in the arrow function. This will automattically be wrapped in a new `Observable`.
 > Note: this does mean we must be able to rely on the server that the movie is stored exactly as we send it.
-- To make it complete, also add the `catch` to the chain just like in `getMovies`.
+- To make it complete, also add the `catchError` to the chain (pipeline) just like in `getMovies`.
 
 **Result**:
 > We now asynchronously save the data of an editted movie to a remote/stub server, and update the list after the data is saved.
