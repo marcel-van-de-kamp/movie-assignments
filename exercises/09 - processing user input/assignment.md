@@ -19,7 +19,7 @@ Assignment 9: Processing user input
 > Test it in the browser and see what happens. 
 - *testing testing.. wtf..?*
 > Oops, we don't want the changes to directly be reflected in the movie list as well, so we need to decouple its model.
-- In the movies component, use the `Object.assign` to clone the movie ($event) parameter. Set the `selectedMovie` property the clone object.
+- In the movies component, use the `Object.assign` to clone the movie ($event) parameter. Set the `selectedMovie` property to the cloned object.
 
 **Extra**:
 - As an **extra** functionality, we want to clear the `genre` input when the user presses the escape button
