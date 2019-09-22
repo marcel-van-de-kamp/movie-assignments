@@ -14,7 +14,7 @@ export class InMemoryDataService implements InMemoryDbService {
           genre: 'Scifi',
           rating: 8
         },
-        { 
+        {
           id: 3,
           name: 'Twister',
           genre: 'SciFi',
