@@ -4,9 +4,9 @@ Assignment 5: Creating a movie list component
 > ## Create a new reusable component that shows the list of a movies and use it in the app component
 
 **Links**:
-- [Creating a component](https://angular-2-training-book.rangle.io/handout/components/creating_components.html)
-- [Event property binding](https://angular-2-training-book.rangle.io/handout/components/app_structure/responding_to_component_events.html)
-- [component events](https://angular.io/docs/ts/latest/cookbook/component-communication.html#!#child-to-parent)
+- [Creating a component](https://angular-training-guide.rangle.io/cli/creating-components)
+- [Event property binding](https://angular-training-guide.rangle.io/components/app_structure_with_components/responding_to_component_events)
+- [component interaction](https://angular.io/docs/ts/latest/cookbook/component-communication.html#!#child-to-parent)
 - [Event emitter API](https://angular.io/api/core/EventEmitter)
 
 **Steps**:
@@ -14,7 +14,7 @@ Assignment 5: Creating a movie list component
   - Double check if the component is imported in the app module and added to the ngModule `declarations` array.
 - Import the angular `Input` and `Output` decorator and the angular `EventEmitter` from @angular/core in the new component.
 - Create an input property `movies` with the typing array of `Movie`.
-- Create an output property `movieClicked` and assign a new (instance of) EventEmitter to it.
+- Create an output property `movieClicked` and assign a new (instance of) EventEmitter to it. Make sure it will emit a Movie with the help of TypeScript (generic).
 - Copy the list HTML from the app component to the movie-list template.
 - Create a function `onMovieClicked` in the movie-list component which accepts a movie as parameter.
 - The click event of the buttons in the `movie-list.component.html` should now be bound to the `onMovieClicked` function of the movie-list component.
