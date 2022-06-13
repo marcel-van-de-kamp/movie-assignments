@@ -1,0 +1,3 @@
+<cw-movie-list [movies]="movies" (movieClicked)="onMovieSelected($event)"></cw-movie-list>
+
+<cw-movie-detail *ngIf="selectedMovie" [movie]="selectedMovie"></cw-movie-detail>

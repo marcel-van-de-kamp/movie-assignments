@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Movie } from './movies/movie.interface';
 
 @Component({
   selector: 'app-root',
@@ -6,7 +7,11 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  public title = 'app works!';
+  title = 'app works!';
 
-  constructor() {}
+  constructor() {
+    
+  }
+
+  
 }

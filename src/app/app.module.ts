@@ -8,16 +8,19 @@ import { InMemoryWebApiModule } from 'angular-in-memory-web-api';
 import { InMemoryDataService }  from './in-memory-data.service';
 
 import { AppComponent } from './app.component';
+import { MoviesModule } from './movies/movies.module';
+
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
   ],
   imports: [
     BrowserModule,
     FormsModule,
     HttpClientModule,
-    InMemoryWebApiModule.forRoot(InMemoryDataService, { delay: 1000 })
+    InMemoryWebApiModule.forRoot(InMemoryDataService, { delay: 1000 }),
+    MoviesModule
   ],
   providers: [],
   bootstrap: [AppComponent]

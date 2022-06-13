@@ -1,0 +1,6 @@
+<ul>
+    <li *ngFor="let movie of movies">
+        {{ movie.name }}<br>
+        <button (click)="onMovieClicked(movie)">View...</button>
+    </li>
+</ul>
