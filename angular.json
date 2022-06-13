@@ -107,7 +107,6 @@
       }
     }
   },
-  "defaultProject": "movie-assignments",
   "schematics": {
     "@schematics/angular:component": {
       "prefix": "cw",
