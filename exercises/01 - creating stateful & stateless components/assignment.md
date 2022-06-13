@@ -12,7 +12,7 @@ Assignment 1: Displaying a list of movies
 - [structural directives](https://angular-training-guide.rangle.io/directives/structural_directives)
 
 **Steps**:
-- Declare a public property `movies` in the app component and give it the typing array of any `any[]`.
+- Declare a (public) property `movies` in the app component and give it the typing array of any `any[]`.
 - Initialize the movies array in the constructor as an array of movie objects.
   - Fill the array with a couple of good movies.
   - A movie object has the following properties: id, name, genre, rating.
