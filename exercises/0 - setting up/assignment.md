@@ -11,7 +11,7 @@ Assignment 0: setting up an angular application with angular-cli
 ## Prerequisites
 
 - An editor, we prefer Visual Studio Code
-- NodeJS and NPM
+- LTS versions of NodeJS and NPM
 - TypeScript
 
 ## Nice to haves
@@ -27,6 +27,6 @@ When you want to work with Angular-CLI / TypeScript on a regular basis install t
 - [nodejs & npm](https://nodejs.org/en/)
 - [typescript](https://www.typescriptlang.org/docs/tutorial.html)
 - [angular-cli](https://cli.angular.io/)
-- [angular 2](https://angular.io/docs/ts/latest/)
+- [angular docs](https://angular.io/docs/ts/latest/)
 
 

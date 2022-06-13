@@ -3,7 +3,7 @@ Angular training
 
 **Goal**:
 - Quickly set up an angular app with which you can browse through a list of movies, see movie details and edit these details
-- The application must be build with reusable components and have a structure that abides by the de angular styleguide.
+- The application must be build with reusable components and have a structure that abides by the de angular best practices.
 
 **Assignment structure**:
 - Each assignment has its own folder in the exercises folder
@@ -29,8 +29,8 @@ After a subject, questions can be asked. If a student is done with a subject, he
 - Subject 8: unit testing
 
 **Todo's & Tips**:
-- Try and use the Angular API reference when doing the assignments: [angular 2 api reference](https://angular.io/docs/ts/latest/api/)
+- Try and use the Angular API reference when doing the assignments: [angular api reference](https://angular.io/docs/ts/latest/api/)
 - Try to do the assignment by reading the one or two liner and using the supplied resource links before going through the steps
 
 **Links**:
-- [why angular](https://angular-2-training-book.rangle.io/handout/why_angular_2.html)
+- [why angular](https://angular-training-guide.rangle.io/why_angular_2)

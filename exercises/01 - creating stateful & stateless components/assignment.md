@@ -6,9 +6,10 @@ Assignment 1: Displaying a list of movies
 **Links:**
 - [html lists](http://www.w3schools.com/html/html_lists.asp)
 - [typescript basic types](https://www.typescriptlang.org/docs/handbook/basic-types.html)
-- [angular displaying data](https://angular.io/docs/ts/latest/guide/displaying-data.html)
-- [angular ngFor directive](https://angular-2-training-book.rangle.io/handout/directives/ng_for_directive.html)
-- [structural directives](https://angular-2-training-book.rangle.io/handout/directives/structural_directives.html)
+- [Introduction Angular Concepts](https://angular.io/guide/architecture)
+- [templates and views](https://angular.io/guide/architecture-components#templates-and-views)
+- [angular ngFor directive](https://angular-training-guide.rangle.io/directives/structural_directives/ng_for_directive)
+- [structural directives](https://angular-training-guide.rangle.io/directives/structural_directives)
 
 **Steps**:
 - Declare a public property `movies` in the app component and give it the typing array of any `any[]`.
