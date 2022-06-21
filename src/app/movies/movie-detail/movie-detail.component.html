@@ -1,8 +1,14 @@
 <div>
-    <input type="text" name="naam" [(ngModel)]="movie.name"><br>
-    <input type="text" name="genre" [(ngModel)]="movie.genre"><br>
-    <input type="number" name="rating" [(ngModel)]="movie.rating"><br>
-    <button (click)="onSaveClicked(movie)">Save me!!</button>
+    <form novalidate [formGroup]="movieForm" (ngSubmit)="onSaveClicked()">
+        <input type="text" name="name" formControlName="name"><br>
+        <div *ngIf="movieForm.controls.name.errors?.required && movieForm.controls.name.touched">Naam is verplicht</div>
+        <div *ngIf="movieForm.controls.name.errors?.minlength && movieForm.controls.name.touched">Minimaal 4 karakters</div>
+        <input type="text" name="genre" formControlName="genre"><br>
+        <div *ngIf="movieForm.controls.genre.errors?.required && movieForm.controls.genre.touched">Genre is verplicht</div>
+        <input type="number" name="rating" formControlName="rating"><br>
+        <button type="submit">Save me!!</button>
+    </form>
+    <div>{{ movieForm.controls.name.errors | json}}</div>
     <h2>{{ movie.name }}</h2>
     <div>
         {{ movie.genre }}<br>
