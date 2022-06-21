@@ -5,11 +5,11 @@ Assignment 12a: Validating user input with a template driven form
 
 **Links**:
 - [angular forms](https://angular.io/docs/ts/latest/guide/forms.html)
-- [forms with validation](https://angular.io/docs/ts/latest/cookbook/form-validation.html)
-- [template model binding](https://angular-2-training-book.rangle.io/handout/forms/template-driven/template-model-binding.html)
-- [template driven forms handout](https://angular-2-training-book.rangle.io/handout/forms/template-driven/template-driven_forms.html)
-- [template driven forms fundamentals](https://toddmotto.com/angular-2-forms-template-driven)
-- [template reference variable](https://angular.io/docs/ts/latest/guide/template-syntax.html#!#ref-vars)
+- [forms with validation](https://angular.io/guide/form-validation)
+- [ngForm directive](https://angular.io/api/forms/NgForm)
+- [template model binding](https://angular-training-guide.rangle.io/forms/template-driven_forms/template-model-binding)
+- [template driven forms](https://angular-training-guide.rangle.io/forms/template-driven_forms)
+- [template reference variable](https://angular.io/guide/template-reference-variables)
 
 **Steps**:
 > Validation rules: Name and genre are required fields and name should have at least 4 characters. The rating should always be between 0 and 11.
@@ -21,7 +21,7 @@ Assignment 12a: Validating user input with a template driven form
  - Extend the `*ngIf` condition with `&& movieName.touched === true` to make sure the error only appears when the user has 'touched' it.
 > You can now see the error in the browser when the name input field is empty.
 - Repeat the steps for the genre field.
-- Also add a `minlength="4"` html attribute to the `name` input field and add a validation error for it.
+- Also add a `minlength="4"` html attribute to the `name` input field and add a validation error for it in the template.
 > Now before submitting to the server, we need to check if the form is valid, by checking its `valid` property.
 - Pass the `valid` property of the `movieForm` as second parameter to the `onSaveClicked` function.
 - Edit the `onSaveClicked` function in the detail component so that it checks if the form is `valid` before using the form values, else show an error message (`alert('error')`).
