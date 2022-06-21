@@ -30,4 +30,4 @@ Assignment 11b: Processing user input with a model driven form
 
 **Result**:
 > We now use a FormGroup and FormControls to capture input changes without directly modifying the model, and we are writing the data to the model on submit. We didnt use any bindings (ngModel) to the input fields themselfs.
-> Next we want to validate the input changes and show validation messages.
+> Next we want to validate the input changes and show validation messages. Please continu with 12b to continue with model driven forms.

@@ -5,11 +5,10 @@ Assignment 11a: Processing user input with a template driven form
 
 **Links**:
 - [angular forms](https://angular.io/docs/ts/latest/guide/forms.html)
-- [ngForm directive](https://angular.io/guide/forms#the-ngform-directive)
-- [template model binding](https://angular-2-training-book.rangle.io/handout/forms/template-driven/template-model-binding.html)
-- [template driven forms handout](https://angular-2-training-book.rangle.io/handout/forms/template-driven/template-driven_forms.html)
-- [template driven forms fundamentals](https://toddmotto.com/angular-2-forms-template-driven)
-- [template reference variable](https://angular.io/docs/ts/latest/guide/template-syntax.html#!#ref-vars)
+- [ngForm directive](https://angular.io/api/forms/NgForm)
+- [template model binding](https://angular-training-guide.rangle.io/forms/template-driven_forms/template-model-binding)
+- [template driven forms](https://angular-training-guide.rangle.io/forms/template-driven_forms)
+- [template reference variable](https://angular.io/guide/template-reference-variables)
 - *[pipes](https://angular.io/docs/ts/latest/guide/pipes.html)*
 
 **Steps**:
@@ -17,7 +16,7 @@ Assignment 11a: Processing user input with a template driven form
 - Encapsulate the input fields and button in the template of the movie detail component with a `<form novalidate>` element.
 > Angular will slap an error in your face (actually in the console of the browser), see if you can fix it.
 - Add a `name` attribute to all input fields and set a value to it, for example `name="genre"`.
-- Add a *template reference variable* `movieForm` to the `form` element and assign the `ngForm` directive to it.
+- Add a *template reference variable* `movieForm` to the `form` element and assign the `ngForm` directive to it: `#movieForm="ngForm"`.
 > You are now able to access the form object that angular creates in the template via the `movieForm` variable.
 > Check it out and output its value in the template by using the `json` filter/pipe `{{ movieForm.value | json }}`.
 
@@ -26,8 +25,8 @@ Assignment 11a: Processing user input with a template driven form
 > Notice that the details that are interpolated, i.e. `{{movie.name}}`, are not updated anymore when changing the input.
 - Change the type of the save button to `submit` and remove the binding to the `click` event.
 - Bind de `ngSubmit` event that is emitted by the `ngForm` directive on the `<form>` element to the `onSaveClicked` function and supply the value of the form as parameter: `onSaveClicked(movieForm.value)`. Add a parameter `value` to the `onSaveClicked` function in the movie detail component.
-> If you used the same names in the `name` attributes as the property names of a movie (name, genre, rating), `movieForm.value` will have the same properties as a `Movie`.
-- Because we have removed the 'two way binding' to the `movie` property, we need to map/set the values we receive in the `onSaveClicked` function to the `movie` before calling `emit`. So `this.movie.name = value.name` etcetera..
+> If you used the same names in the `name` attributes as the property names of a movie (name, genre, rating), `movieForm.value` will have the same properties as a `Movie` except propbably for the `id` property.
+- Because we have removed the 'two way binding' to the `movie` property, we need to map/set the values we receive in the `onSaveClicked` function to a `movie` before calling `emit`. So make a new Movie object within the `OnSaveClicked` method and fill it with the received values and the id of the movie (hint: `this.movie.id`). Pass this new Movie object to the `emit` method of the `save` output property.
 
 **Extra**:
 > Our `movie` model still changes directly when we press the *Escape* key in the `genre` input field.
@@ -41,4 +40,4 @@ Assignment 11a: Processing user input with a template driven form
 
 **Result**:
 > We now use a ngForm to capture input changes without directly modifying the model, and we are writing the data to the model on submit.
-> Next we want to validate the input changes and show validation messages.
+> Next we want to validate the input changes and show validation messages. Please continu with assigment 12a to continue with template driven forms.
