@@ -4,6 +4,7 @@ import { MoviesComponent } from './movies.component';
 
 import { MovieDetailComponent } from './movie-detail/movie-detail.component';
 import { MovieListComponent } from './movie-list/movie-list.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -12,7 +13,8 @@ import { MovieListComponent } from './movie-list/movie-list.component';
     MovieListComponent
   ],
   imports: [
-    CommonModule
+    CommonModule,
+    FormsModule,
   ],
   exports: [
     MoviesComponent

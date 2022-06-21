@@ -19,6 +19,23 @@ export class MoviesComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.getMovies();
+  }
+
+  onMovieSelected(movie: Movie) {
+    this.selectedMovie = {...movie};
+  }
+
+  onSaveMovie(movie: Movie) {
+    this.movieService.updateMovie(movie).subscribe({
+      next: () => {
+        console.log('succes');
+        this.getMovies();
+      }
+    });
+  }
+
+  private getMovies(): void {
     // this.movies$ = this.movieService.getMovies();
 
     const result = this.movieService.getMovies();
@@ -34,10 +51,6 @@ export class MoviesComponent implements OnInit {
         // do something when the observer completes, often not needed.... 
       }
     });
-  }
-
-  onMovieSelected(movie: Movie) {
-    this.selectedMovie = movie;
   }
 
 }

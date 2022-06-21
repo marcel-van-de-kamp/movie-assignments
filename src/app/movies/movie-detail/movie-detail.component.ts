@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, Output, OnInit } from '@angular/core';
 import { Movie } from '../movie.interface';
 
 @Component({
@@ -8,10 +8,15 @@ import { Movie } from '../movie.interface';
 })
 export class MovieDetailComponent implements OnInit {
   @Input() movie: Movie;
+  @Output() save = new EventEmitter<Movie>();
 
   constructor() { }
 
   ngOnInit(): void {
+  }
+
+  onSaveClicked(movie: Movie) {
+    this.save.emit(movie);
   }
 
 }

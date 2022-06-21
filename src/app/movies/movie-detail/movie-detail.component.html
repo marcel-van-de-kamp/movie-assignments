@@ -1,4 +1,8 @@
 <div>
+    <input type="text" name="naam" [(ngModel)]="movie.name"><br>
+    <input type="text" name="genre" [(ngModel)]="movie.genre"><br>
+    <input type="number" name="rating" [(ngModel)]="movie.rating"><br>
+    <button (click)="onSaveClicked(movie)">Save me!!</button>
     <h2>{{ movie.name }}</h2>
     <div>
         {{ movie.genre }}<br>
