@@ -15,8 +15,17 @@ export class MovieDetailComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  onSaveClicked(movie: Movie) {
-    this.save.emit(movie);
+  onSaveClicked(value: Movie, valid: boolean) {
+    if (valid) {
+      const movie: Movie = {
+        id: this.movie.id,
+        ...value,
+      };
+
+      this.save.emit(movie);
+    } else {
+      window.alert('error!!');
+    }
   }
 
 }
