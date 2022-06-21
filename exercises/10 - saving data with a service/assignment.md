@@ -9,9 +9,9 @@ Assignment 10: saving data with a service
 - [angular http client](https://angular.io/guide/http)
 - [rxjs](http://reactivex.io/rxjs/manual/overview.html#introduction)
 - [rxjs observable](http://reactivex.io/documentation/observable.html)
-- [using observables](https://angular-2-training-book.rangle.io/handout/observables/using_observables.html)
-- [typescript generics](https://www.typescriptlang.org/docs/handbook/generics.html)
-- [template literals](https://developers.google.com/web/updates/2015/01/ES6-Template-Strings)
+- [using observables](https://angular-training-guide.rangle.io/observables/using_observables)
+- [typescript generics](https://www.typescriptlang.org/docs/handbook/2/generics.html)
+- [template literals](https://developer.chrome.com/blog/es6-template-strings/)
 
 **Steps**:
 - Add an `updateMovie` function to the `movie.service`, that receives one parameter `movie`.
@@ -29,12 +29,12 @@ Assignment 10: saving data with a service
 - Call the `emit` function on `save` in the `onSaveClicked` method with the property `movie` as single argument.
 - Add an event binding to our `save` event in the template of the `movies.component` and bind it to a `onMovieSaved` function. don't forget the `$event` parameter.
  - Add the `onSaveMovie` function to the movies component. Make the `onMovieSaved` function call `updateMovie` of the `movie.service`.
- - `updateMovie` will return an `Observable`, so chain a call to the `subscribe` function and supply an arrow function as its single parameter.
+ - `updateMovie` will return an `Observable`, so chain a call to the `subscribe` function and supply an observer object (like we did in assignment 8) as argument and implement the next handler. For instance write `console.log('succes')` in this handler.
  > Now that the data is saved, we want the list to update as well.
- - Extract the code from the `ngOnInit` function to a new function `getMovies` in the movies component.
+ - Extract the code from the `ngOnInit` function in `movies.component.ts` to a new function `getMovies` in the movies component.
  - Call `getMovies` in the `ngOnInit` to make it work again. 
  > Now we can re-use the code we extracted (you should not manually call the `ngOnInit` function because it is a lifecycle hook). 
-- Now also call `getMovies` inside the arrow function we supplied to the `subscribe` function.
+- Now also call `getMovies` inside the next handler we supplied to the observer of the `subscribe` function. (you can leave the console.log if you want)
  > 'In real life' after editing a movie, we would often return to an overview page and retreive the updated list data there.
 
 
