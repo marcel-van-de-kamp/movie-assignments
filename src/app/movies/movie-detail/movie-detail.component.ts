@@ -7,37 +7,32 @@ import { FormGroup, FormControl, Validators } from '@angular/forms';
   templateUrl: './movie-detail.component.html',
   styleUrls: ['./movie-detail.component.scss']
 })
-export class MovieDetailComponent implements OnInit, OnChanges {
+export class MovieDetailComponent implements OnChanges {
   @Input() movie: Movie;
   @Output() save = new EventEmitter<Movie>();
 
-  movieForm: FormGroup;
+  movieForm = new FormGroup({
+    name: new FormControl<string>('', [Validators.required, Validators.minLength(4)]),
+    genre: new FormControl<string>('', [Validators.required]),
+    rating: new FormControl<number>(0)
+  })
 
   constructor() { }
 
-  ngOnChanges(changes: SimpleChanges): void {
-    if (changes.movie.currentValue && !changes.movie.firstChange) {
+  ngOnChanges(): void {
       this.movieForm.setValue({
         name: this.movie.name,
         genre: this.movie.genre,
         rating: this.movie.rating
-      })
-
-    }
-  }
-
-  ngOnInit(): void {
-    this.movieForm = new FormGroup({
-      name: new FormControl(this.movie.name, [Validators.required, Validators.minLength(4)]),
-      genre: new FormControl(this.movie.genre, [Validators.required]),
-      rating: new FormControl(this.movie.rating)
-    })
+      });
   }
 
   onSaveClicked() {
     if (this.movieForm.valid) {
       const movie: Movie = {
-        ...this.movieForm.value,
+        genre: this.movieForm.value.genre,
+        name: this.movieForm.value.name,
+        rating: this.movieForm.value.rating,
         id: this.movie.id
       }
       this.save.emit(movie);
