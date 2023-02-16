@@ -3,16 +3,19 @@
 This project was generated with [angular-cli](https://github.com/angular/angular-cli) version 1.0.0-beta.19-3.
 
 ## Prerequisites
-- Node 16.15.x & NPM 8.x [nodejs.org](https://nodejs.org/en/) (choose lts version)
+- Minimal: Node 16.15.x & NPM 8.x [nodejs.org](https://nodejs.org/en/) (choose lts version)
 
 ## installation
 
 ```
+// optional
 npm install -g typescript // install typescript globally
 npm install -g @angular/cli // install angular-cli globally
-git clone 'https://github.com/Angular2Training/movie-assignments.git'
+
+// required
+git clone 'https://github.com/mpoelstra/movie-assignments.git'
 npm install --legacy-peer-deps
-ng serve
+npm run start
 ```
 
 ## Development server
