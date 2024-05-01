@@ -59,18 +59,18 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "movie-assignments:build"
+            "buildTarget": "movie-assignments:build"
           },
           "configurations": {
             "production": {
-              "browserTarget": "movie-assignments:build:production"
+              "buildTarget": "movie-assignments:build:production"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "movie-assignments:build"
+            "buildTarget": "movie-assignments:build"
           }
         },
         "test": {
