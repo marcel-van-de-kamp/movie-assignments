@@ -15,7 +15,7 @@ Assignment 8: Getting movies from a remote server
 - [async pipe](https://angular.io/api/common/AsyncPipe)
 
 **Steps**:
-- Notice the `HttpClientModule` from `'@angular/common/http'` in the `app.module` file and that it is part of the `imports` array of the module.
+- Notice the provideHttpClient() from '@angular/common/http' in the app.config.ts file.
 - Import the `HttpClient` service from `'@angular/common/http'` into the `movie.service`.
 - Add a parameter `http` to the constructor and type it as `HttpClient`.
 - Declare two private properties `moviesUrl` and `moviesFavUrl` in the `movie.service` and assign the values `'api/movies'` and `'api/moviesFav'` to them.
@@ -52,7 +52,7 @@ result.subscribe({
 - *Repeat the steps for the favorite movies in a `getFavMovies` function. The `getFavMovies` function will not be used in any component yet.*
 
 **Extra 1**
-> Try to display the movies with the help of the `async` pipe. See: [async pipe](https://angular.io/api/common/AsyncPipe). This `async` pipe can be applied to a `Promise` or an `Observable` directly in the template (html). This pipe will do an implicit subscribe to the observable so you will not have to do it manually/explicit in the ts file like we just did.
+> Try to display the movies with the help of the `async` pipe. See: [async pipe](https://angular.io/api/common/AsyncPipe). This `async` pipe can be applied to a `Promise` or an `Observable` directly in the template (html). This pipe will do an implicit subscribe to the observable so you will not have to do it manually/explicit in the ts file like we just did. Don't forget to import the AsyncPipe when using this feature.
 
 > Another advantage of the `async` pipe is that the observable will be automatically be unsubscribed when the template has been destroyed. NB: subscriptions to observables returned from the HttpClient will also be automatically unsubcribed but with all other types of observables you will need to know when to unsubscribe. With the `async` you are always safe, so it's a good practice.
 
