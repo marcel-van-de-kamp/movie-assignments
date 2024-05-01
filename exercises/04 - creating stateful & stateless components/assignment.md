@@ -10,7 +10,7 @@ Assignment 4: Creating a movie detail component
 
 **Steps**:
 - Create a new component in the `movies` folder using the angular-cli generator command `ng g component movies/movie-detail` in the integrated terminal. NB: You can run this command from the root of the project.
-  - Double check if the component is imported in the app module and added to the ngModule `declarations` array.
+  - Add this movie-detail component to the imports array of the app.component.ts
 - Notice the `selector` property of the movie-detail component has become `cw-movie-detail`.
 - Import the angular `Input` decorator from @angular/core and create an input property `movie` of the type `Movie`.
 - Copy the movie detail HTML from the app component template to the movie detail component template.

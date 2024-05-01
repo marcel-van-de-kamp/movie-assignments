@@ -19,6 +19,7 @@ Assignment 1: Displaying a list of movies
 - Create an unordered list `<ul>` in the template of the app component.
 - Create one list item in the list `<li>` and use an `*ngFor` to loop over the movies.
   - Display the name and rating for each movie using interpolation.
+  - Don't forget to import ngFor in the imports array to display the list
 
 **Result**:
 > We now have a component that displays a list of movies.

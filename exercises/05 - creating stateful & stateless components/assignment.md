@@ -11,11 +11,12 @@ Assignment 5: Creating a movie list component
 
 **Steps**:
 - Create a new component in the `movies` folder using the angular-cli generator command `ng g component movies/movie-list` in the integrated terminal. NB: You can run this command from the root of the project.
-  - Double check if the component is imported in the app module and added to the ngModule `declarations` array.
+  - Add this movie-list component to the imports array of the app.component.ts
 - Import the angular `Input` and `Output` decorator and the angular `EventEmitter` from @angular/core in the new component.
 - Create an input property `movies` with the typing array of `Movie`.
 - Create an output property `movieClicked` and assign a new (instance of) EventEmitter to it. Make sure it will emit a Movie with the help of TypeScript (generic).
 - Copy the list HTML from the app component to the movie-list template.
+- Move the ngFor import from the app component to the movie list component.
 - Create a function `onMovieClicked` in the movie-list component which accepts a movie as parameter.
 - The click event of the buttons in the `movie-list.component.html` should now be bound to the `onMovieClicked` function of the movie-list component.
 - Use the `movieClicked` output property to emit an event and supply the clicked movie as event value.
