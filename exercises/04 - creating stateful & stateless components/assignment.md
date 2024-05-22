@@ -6,7 +6,7 @@ Assignment 4: Creating a movie detail component
 **Links**:
 - [creating a component](https://angular-training-guide.rangle.io/cli/creating-components)
 - [input property binding](https://angular-training-guide.rangle.io/components/app_structure_with_components/passing_data_into_components)
-- [stateful, stateless, dumb and smart components](https://michelestieven.medium.com/components-stateful-stateless-dumb-and-smart-2847dd4092f2)
+- [stateful, stateless, dumb and smart components](https://medium.com/@sniadek97/smart-dumb-components-in-angular-c11e43ed312e)
 
 **Steps**:
 - Create a new component in the `movies` folder using the angular-cli generator command `ng g component movies/movie-detail` in the integrated terminal. NB: You can run this command from the root of the project.

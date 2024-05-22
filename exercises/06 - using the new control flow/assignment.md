@@ -5,6 +5,7 @@ Assignment 6: Creating a feature module
 
 **Links**:
 - [Angular Control flow](https://angular.io/guide/control_flow)
+- [Angular Control flow examples](https://medium.com/@ayushgrwl365/introducing-new-control-flow-in-angular-17-89e67903daed)
 
 **Steps**:
 - Generate a movies component for all the movie functionality with the angular-cli command `ng g component movies/movies`.
@@ -13,7 +14,7 @@ Assignment 6: Creating a feature module
   - Move the movie list and detail elements from the app component template to the movies component template.
   - Move the imports of the movie detail, movie list component and ngIf from the app component to the movies component.
   - Import the movies component into the app component and add it to the imports array.
-  - Add the movies component cw-movies in the template of the app component, to get the application working again.
+  - Add the movies component cw-movies in the HTML template of the app component, to get the application working again.
 
 - From Angular 18+, Angular will work with a new control flow. The new declarative control flow brings the functionality of NgIf, NgFor, and NgSwitch into the framework itself. Please read the documentation to see what the changes are.
 - To start with the new control flow, execute the following angular-cli command `ng g @angular/core:control-flow`.
