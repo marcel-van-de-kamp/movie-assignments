@@ -15,7 +15,7 @@ Assignment 8: Getting movies from a remote server
 - [async pipe](https://angular.io/api/common/AsyncPipe)
 
 **Steps**:
-- Notice the provideHttpClient() from '@angular/common/http' in the app.config.ts file.
+- Notice the `provideHttpClient()` from '@angular/common/http' in the app.config.ts file and how this config file is loaded in `main.ts` while bootstrapping the application.
 - Import the `HttpClient` service from `'@angular/common/http'` into the `movie.service`.
 - Add a parameter `http` to the constructor and type it as `HttpClient`.
 - Declare two private properties `moviesUrl` and `moviesFavUrl` in the `movie.service` and assign the values `'api/movies'` and `'api/moviesFav'` to them.
