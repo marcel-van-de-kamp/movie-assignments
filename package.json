@@ -30,7 +30,7 @@
     "@angular/cli": "^18.2.12",
     "@angular/compiler-cli": "^18.2.13",
     "@types/jasmine": "~4.0.0",
-    "angular-in-memory-web-api": "^0.18.0",
+    "angular-in-memory-web-api": "^0.19.0",
     "jasmine-core": "~4.1.0",
     "karma": "~6.3.0",
     "karma-chrome-launcher": "~3.1.0",
