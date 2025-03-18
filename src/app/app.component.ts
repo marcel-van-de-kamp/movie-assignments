@@ -7,7 +7,5 @@ import { Component, signal } from '@angular/core';
     styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  public title = signal('App works!');
-
-  constructor() {}
+  title = signal('App works!');
 }
