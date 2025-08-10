@@ -12,7 +12,7 @@ Assignment 5: Creating a movie list component
 **Steps**:
 - Create a new component in the `movies` folder using the angular-cli generator command `ng g component movies/movie-list` in the integrated terminal. NB: You can run this command from the root of the project.
   - Before you continue, add this movie-list component to the imports array of the app.component.ts
-- Import the angular `input` and `output` decorator from @angular/core in the new MovieList component.
+- Import the angular `input` and `output` functions from @angular/core in the new MovieList component.
 - Create an input property `movies` with the typing array of `Movie`.
 - Create an output property `movieClicked`. Make sure it will emit a Movie with the help of TypeScript (generic).
 - Copy the list HTML from the app component to the movie-list template.
