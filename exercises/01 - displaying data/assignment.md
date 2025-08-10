@@ -8,16 +8,16 @@ Assignment 1: Displaying a list of movies
 - [typescript basic types](https://www.typescriptlang.org/docs/handbook/basic-types.html)
 - [Introduction Angular Concepts](https://angular.io/guide/architecture)
 - [templates and views](https://angular.io/guide/architecture-components#templates-and-views)
-- [angular ngFor directive](https://angular-training-guide.rangle.io/directives/structural_directives/ng_for_directive)
-- [structural directives](https://angular-training-guide.rangle.io/directives/structural_directives)
+- [Angular Signals](https://angular.dev/guide/signals)
+- [angular @for block](https://angular.dev/api/core/@for)
 
 **Steps**:
-- Declare a (public) property `movies` in the app component and give it the typing array of any `any[]`.
-- Initialize the movies array in the constructor as an array of movie objects.
-  - Fill the array with a couple of good movies.
+- Declare a (public) signal property `movies` in the app component and give it the typing array `[]` of any.
+- Initialize the movies array in the onInit as an array of movie objects.
+  - Fill the array with a couple of good movies using the set property.
   - A movie object has the following properties: id, name, genre, rating.
 - Create an unordered list `<ul>` in the template of the app component.
-- Create one list item in the list `<li>` and use an `*ngFor` to loop over the movies.
+- Create one list item in the list `<li>` and use an `@for` to loop over the movies.
   - Display the name and rating for each movie using interpolation.
 
 **Result**:
